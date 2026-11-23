@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import { CheckCircle2, GraduationCap, Compass, Target, Code2 } from "lucide-react"
 import { personalData } from "../data/personal"
 import { SectionHeader } from "../components/SectionHeader"
@@ -12,16 +13,29 @@ export function AboutSection() {
       aria-label="About Syed Muhammad Saim"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="About Me"
-          title="Engineering Practical Solutions with Modern Architecture"
-          description="A dedicated software developer based in Karachi, Pakistan, committed to writing clean, maintainable code and solving real-world challenges."
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <SectionHeader
+            badge="About Me"
+            title="Engineering Practical Solutions with Modern Architecture"
+            description="A dedicated software developer based in Karachi, Pakistan, committed to writing clean, maintainable code and solving real-world challenges."
+          />
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main Biography Column (7 cols) */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="p-6 sm:p-8 rounded-xl border border-[#eaeaea] dark:border-[#262626] bg-neutral-50/50 dark:bg-[#141414]/50 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 space-y-6"
+          >
+            <div className="p-6 sm:p-8 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-neutral-50/50 dark:bg-[#141414]/50 space-y-4 shadow-xs">
               <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
                 <Code2 className="w-5 h-5 text-neutral-700 dark:text-neutral-300" />
                 <span>Professional Biography</span>
@@ -35,30 +49,37 @@ export function AboutSection() {
             </div>
 
             {/* Core Focus Areas */}
-            <div className="p-6 sm:p-8 rounded-xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-4">
-              <h3 className="text-sm uppercase tracking-wider font-semibold text-neutral-500 dark:text-neutral-400">
+            <div className="p-6 sm:p-8 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-4 shadow-xs">
+              <h3 className="text-xs uppercase tracking-widest font-bold text-neutral-400 dark:text-neutral-500">
                 Core Engineering Focus
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {bio.focusAreas.map((area, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className="flex items-center gap-2.5 p-3 rounded-lg border border-neutral-100 dark:border-neutral-800 bg-neutral-50/80 dark:bg-[#181818]/80 text-sm font-medium text-neutral-800 dark:text-neutral-200"
+                    whileHover={{ scale: 1.02 }}
+                    className="flex items-center gap-2.5 p-3.5 rounded-xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50/80 dark:bg-[#181818]/80 text-sm font-medium text-neutral-800 dark:text-neutral-200 transition-colors"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-neutral-700 dark:text-neutral-300 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                     <span>{area}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Education, Interests & Career Objective (5 cols) */}
-          <div className="lg:col-span-5 space-y-5">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 space-y-5"
+          >
             {/* Education Card */}
-            <div className="p-6 rounded-xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-3">
+            <div className="p-6 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-3 shadow-xs">
               <div className="flex items-center gap-2.5 text-neutral-900 dark:text-neutral-100 font-bold">
-                <div className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
+                <div className="p-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
                   <GraduationCap className="w-4 h-4" />
                 </div>
                 <h4>Education &amp; Formal Training</h4>
@@ -77,9 +98,9 @@ export function AboutSection() {
             </div>
 
             {/* Development Interests */}
-            <div className="p-6 rounded-xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-3">
+            <div className="p-6 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-3 shadow-xs">
               <div className="flex items-center gap-2.5 text-neutral-900 dark:text-neutral-100 font-bold">
-                <div className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
+                <div className="p-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
                   <Compass className="w-4 h-4" />
                 </div>
                 <h4>Development Interests</h4>
@@ -92,9 +113,9 @@ export function AboutSection() {
             </div>
 
             {/* Career Objectives */}
-            <div className="p-6 rounded-xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-3">
+            <div className="p-6 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-3 shadow-xs">
               <div className="flex items-center gap-2.5 text-neutral-900 dark:text-neutral-100 font-bold">
-                <div className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
+                <div className="p-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
                   <Target className="w-4 h-4" />
                 </div>
                 <h4>Career Objective</h4>
@@ -105,7 +126,7 @@ export function AboutSection() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

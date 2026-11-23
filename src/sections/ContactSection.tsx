@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react"
+import { motion } from "framer-motion"
 import emailjs from "@emailjs/browser"
 import { Mail, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react"
 import { personalData } from "../data/personal"
@@ -10,7 +11,7 @@ interface FormState {
   email: string
   subject: string
   message: string
-  botField: string // Honeypot field
+  botField: string
 }
 
 interface FormErrors {
@@ -61,15 +62,12 @@ export function ContactSection() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
-    // 1. Honeypot spam check
     if (formData.botField) {
-      // Silently ignore bot submission
       setSubmitStatus("success")
       setStatusMessage("Thank you! Your message has been received.")
       return
     }
 
-    // 2. Input validation
     if (!validate()) return
 
     setIsSubmitting(true)
@@ -82,7 +80,6 @@ export function ContactSection() {
 
     try {
       if (serviceId && templateId && publicKey) {
-        // Live EmailJS call
         await emailjs.send(
           serviceId,
           templateId,
@@ -104,7 +101,6 @@ export function ContactSection() {
           botField: "",
         })
       } else {
-        // Simulated local fallback when keys are not configured yet
         await new Promise((resolve) => setTimeout(resolve, 800))
         setSubmitStatus("success")
         setStatusMessage(
@@ -133,16 +129,29 @@ export function ContactSection() {
       aria-label="Contact Section"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="Get In Touch"
-          title="Let's Discuss Your Next Software Project"
-          description="Have an inquiry, project proposition, or engineering role? Reach out through the contact form or connect directly across professional channels."
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <SectionHeader
+            badge="Get In Touch"
+            title="Let's Discuss Your Next Software Project"
+            description="Have an inquiry, project proposition, or engineering role? Reach out through the contact form or connect directly across professional channels."
+          />
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Direct Contact Info (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 sm:p-8 rounded-xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 space-y-6"
+          >
+            <div className="p-6 sm:p-8 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-6 shadow-sm">
               <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100">
                 Direct Contact Information
               </h3>
@@ -151,9 +160,8 @@ export function ContactSection() {
               </p>
 
               <div className="space-y-4 pt-2">
-                {/* Email item */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-lg border border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-[#181818] text-neutral-800 dark:text-neutral-200 shrink-0">
+                  <div className="p-2.5 rounded-xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-[#181818] text-neutral-800 dark:text-neutral-200 shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
@@ -169,9 +177,8 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                {/* Location item */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-lg border border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-[#181818] text-neutral-800 dark:text-neutral-200 shrink-0">
+                  <div className="p-2.5 rounded-xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-[#181818] text-neutral-800 dark:text-neutral-200 shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -185,7 +192,6 @@ export function ContactSection() {
                 </div>
               </div>
 
-              {/* Social Channels List */}
               <div className="pt-6 border-t border-neutral-100 dark:border-neutral-800 space-y-3">
                 <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
                   Professional Networks
@@ -193,13 +199,18 @@ export function ContactSection() {
                 <SocialIcons iconSize={18} variant="bordered" />
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Contact Form (7 cols) */}
-          <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] shadow-xs">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+          >
+            <div className="p-6 sm:p-8 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] shadow-sm">
               <form onSubmit={handleSubmit} noValidate className="space-y-4">
-                {/* Honeypot Spam Protection Field - Hidden from humans */}
                 <div className="hidden" aria-hidden="true">
                   <label htmlFor="botField">Leave this field blank</label>
                   <input
@@ -213,9 +224,7 @@ export function ContactSection() {
                   />
                 </div>
 
-                {/* Full Name & Email row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Full Name */}
                   <div className="space-y-1.5">
                     <label
                       htmlFor="fullName"
@@ -236,7 +245,7 @@ export function ContactSection() {
                       }}
                       aria-invalid={!!errors.fullName}
                       aria-describedby={errors.fullName ? "fullName-error" : undefined}
-                      className={`w-full px-3.5 py-2.5 rounded-lg border text-sm transition-colors bg-white dark:bg-[#161616] text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 ${
+                      className={`w-full px-3.5 py-2.5 rounded-xl border text-sm transition-colors bg-white dark:bg-[#161616] text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 ${
                         errors.fullName
                           ? "border-red-500 dark:border-red-500"
                           : "border-neutral-200 dark:border-neutral-800"
@@ -249,7 +258,6 @@ export function ContactSection() {
                     )}
                   </div>
 
-                  {/* Email Address */}
                   <div className="space-y-1.5">
                     <label
                       htmlFor="email"
@@ -270,7 +278,7 @@ export function ContactSection() {
                       }}
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? "email-error" : undefined}
-                      className={`w-full px-3.5 py-2.5 rounded-lg border text-sm transition-colors bg-white dark:bg-[#161616] text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 ${
+                      className={`w-full px-3.5 py-2.5 rounded-xl border text-sm transition-colors bg-white dark:bg-[#161616] text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 ${
                         errors.email
                           ? "border-red-500 dark:border-red-500"
                           : "border-neutral-200 dark:border-neutral-800"
@@ -284,7 +292,6 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                {/* Subject */}
                 <div className="space-y-1.5">
                   <label
                     htmlFor="subject"
@@ -305,7 +312,7 @@ export function ContactSection() {
                     }}
                     aria-invalid={!!errors.subject}
                     aria-describedby={errors.subject ? "subject-error" : undefined}
-                    className={`w-full px-3.5 py-2.5 rounded-lg border text-sm transition-colors bg-white dark:bg-[#161616] text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 ${
+                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm transition-colors bg-white dark:bg-[#161616] text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 ${
                       errors.subject
                         ? "border-red-500 dark:border-red-500"
                         : "border-neutral-200 dark:border-neutral-800"
@@ -318,7 +325,6 @@ export function ContactSection() {
                   )}
                 </div>
 
-                {/* Message */}
                 <div className="space-y-1.5">
                   <label
                     htmlFor="message"
@@ -339,7 +345,7 @@ export function ContactSection() {
                     }}
                     aria-invalid={!!errors.message}
                     aria-describedby={errors.message ? "message-error" : undefined}
-                    className={`w-full px-3.5 py-2.5 rounded-lg border text-sm transition-colors bg-white dark:bg-[#161616] text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 resize-y ${
+                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm transition-colors bg-white dark:bg-[#161616] text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 resize-y ${
                       errors.message
                         ? "border-red-500 dark:border-red-500"
                         : "border-neutral-200 dark:border-neutral-800"
@@ -352,11 +358,10 @@ export function ContactSection() {
                   )}
                 </div>
 
-                {/* Feedback notification banner */}
                 {submitStatus === "success" && (
                   <div
                     role="alert"
-                    className="p-3.5 rounded-lg border border-emerald-500/20 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs flex items-center gap-2 animate-fadeIn"
+                    className="p-3.5 rounded-xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs flex items-center gap-2 animate-fadeIn"
                   >
                     <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
                     <span>{statusMessage}</span>
@@ -366,19 +371,20 @@ export function ContactSection() {
                 {submitStatus === "error" && (
                   <div
                     role="alert"
-                    className="p-3.5 rounded-lg border border-red-500/20 bg-red-500/10 text-red-700 dark:text-red-300 text-xs flex items-center gap-2 animate-fadeIn"
+                    className="p-3.5 rounded-xl border border-red-500/20 bg-red-500/10 text-red-700 dark:text-red-300 text-xs flex items-center gap-2 animate-fadeIn"
                   >
                     <AlertCircle className="w-4 h-4 shrink-0 text-red-600 dark:text-red-400" />
                     <span>{statusMessage}</span>
                   </div>
                 )}
 
-                {/* Submit button */}
                 <div className="pt-2">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 rounded-lg text-sm font-semibold bg-[#111111] text-white hover:bg-[#2b2b2b] dark:bg-white dark:text-[#111111] dark:hover:bg-neutral-200 transition-all duration-200 shadow-xs cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400"
+                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 rounded-full text-sm font-semibold bg-[#111111] text-white hover:bg-[#2b2b2b] dark:bg-white dark:text-[#111111] dark:hover:bg-neutral-200 transition-all duration-200 shadow-md cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400"
                   >
                     {isSubmitting ? (
                       <>
@@ -391,11 +397,11 @@ export function ContactSection() {
                         <Send className="w-4 h-4" />
                       </>
                     )}
-                  </button>
+                  </motion.button>
                 </div>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

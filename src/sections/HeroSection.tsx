@@ -1,13 +1,15 @@
-import { ArrowDownRight, Download, Mail, ArrowRight } from "lucide-react"
+import { motion } from "framer-motion"
+import { ArrowRight, Download, Mail } from "lucide-react"
 import { personalData } from "../data/personal"
 import { AvailabilityBadge } from "../components/AvailabilityBadge"
 import { SocialIcons } from "../components/SocialIcons"
+import { InteractiveAvatar3D } from "../components/InteractiveAvatar3D"
 
 export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden border-b border-[#eaeaea] dark:border-[#222222]"
+      className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden border-b border-[#eaeaea] dark:border-[#222222]"
       aria-label="Hero Introduction"
     >
       {/* Subtle background coordinate accents */}
@@ -18,17 +20,28 @@ export function HeroSection() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Main Hero Content (Left 7-8 cols) */}
-          <div className="lg:col-span-7 flex flex-col items-start space-y-6">
+          {/* Main Hero Content (Left 7 cols) with smooth stagger entrance */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col items-start space-y-6"
+          >
             {/* Availability Status */}
-            <AvailabilityBadge />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+            >
+              <AvailabilityBadge />
+            </motion.div>
 
             {/* Name & Title */}
             <div className="space-y-2">
-              <span className="text-xs uppercase tracking-[0.2em] font-semibold text-neutral-500 dark:text-neutral-400">
-                Portfolio of
+              <span className="text-xs uppercase tracking-[0.25em] font-bold text-neutral-500 dark:text-neutral-400">
+                Full Stack &amp; AI Engineer
               </span>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111111] dark:text-[#f5f5f5] leading-[1.1]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111111] dark:text-[#f5f5f5] leading-[1.08]">
                 {personalData.fullName}
               </h1>
               <p className="text-lg sm:text-xl font-medium text-neutral-700 dark:text-neutral-300">
@@ -46,35 +59,46 @@ export function HeroSection() {
               </p>
             </div>
 
-            {/* Call-to-Action Buttons */}
+            {/* Call-to-Action Buttons with smooth spring & glow */}
             <div className="flex flex-wrap items-center gap-3 pt-4 w-full sm:w-auto">
               {/* Primary: View My Work */}
-              <a
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 href="#projects"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold bg-[#111111] text-white hover:bg-[#2b2b2b] dark:bg-white dark:text-[#111111] dark:hover:bg-neutral-200 transition-all duration-200 shadow-xs cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-[#111111] text-white hover:bg-[#2b2b2b] dark:bg-white dark:text-[#111111] dark:hover:bg-neutral-200 transition-all duration-200 shadow-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 w-full sm:w-auto"
               >
                 <span>View My Work</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </motion.a>
+
+              {/* Glowing Gradient Contact Button (As featured in the video) */}
+              <motion.a
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                href="#contact"
+                className="relative inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-white overflow-hidden shadow-lg transition-all duration-300 w-full sm:w-auto group cursor-pointer"
+              >
+                {/* Vibrant Gradient Background */}
+                <span className="absolute inset-0 bg-linear-to-r from-purple-600 via-pink-600 to-amber-500 opacity-90 group-hover:opacity-100 transition-opacity" />
+                <span className="absolute -inset-1 bg-linear-to-r from-purple-600 to-pink-500 blur-sm opacity-50 group-hover:opacity-80 transition-opacity" />
+                <span className="relative z-10 flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  <span>Contact Me</span>
+                </span>
+              </motion.a>
 
               {/* Secondary: Download CV */}
-              <a
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 href={personalData.cvPath}
                 download="Syed_Muhammad_Saim_CV.pdf"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#141414] text-[#111111] dark:text-[#f5f5f5] hover:border-neutral-400 dark:hover:border-neutral-600 hover:bg-neutral-50 dark:hover:bg-[#1c1c1c] transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-sm font-semibold border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#141414] text-[#111111] dark:text-[#f5f5f5] hover:border-neutral-400 dark:hover:border-neutral-600 hover:bg-neutral-50 dark:hover:bg-[#1c1c1c] transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 w-full sm:w-auto"
               >
                 <Download className="w-4 h-4 text-neutral-500" />
                 <span>Download CV</span>
-              </a>
-
-              {/* Tertiary: Contact Me */}
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-[#1a1a1a] transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 w-full sm:w-auto"
-              >
-                <Mail className="w-4 h-4 text-neutral-500" />
-                <span>Contact Me</span>
-              </a>
+              </motion.a>
             </div>
 
             {/* Social Links & Location */}
@@ -86,40 +110,21 @@ export function HeroSection() {
                 <SocialIcons iconSize={16} variant="bordered" />
               </div>
               <div className="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 <span>Based in {personalData.location}</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Minimalist Profile Representation (5 cols) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm">
-              {/* Outer decorative ring */}
-              <div className="relative rounded-2xl p-2 border border-[#eaeaea] dark:border-[#262626] bg-neutral-50/50 dark:bg-[#161616]/50 shadow-xs">
-                <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-neutral-900 border border-neutral-800">
-                  <img
-                    src={personalData.avatarPlaceholder}
-                    alt="Syed Muhammad Saim — Developer Portfolio Identity"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                  />
-                  {/* Subtle corner badge */}
-                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-black/75 backdrop-blur-md border border-neutral-800/80 text-white flex items-center justify-between">
-                    <div>
-                      <p className="text-[11px] font-semibold tracking-wider uppercase text-neutral-300">
-                        Specialization
-                      </p>
-                      <p className="text-xs text-neutral-400 font-mono">
-                        ASP.NET Core · React · AI
-                      </p>
-                    </div>
-                    <ArrowDownRight className="w-4 h-4 text-neutral-400" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Right Column: Interactive 3D Developer Avatar (5 cols) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex justify-center lg:justify-end"
+          >
+            <InteractiveAvatar3D />
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#1f1f1f"/>
+    </linearGradient>
+    <linearGradient id="silverGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eaeaea"/>
+      <stop offset="100%" stop-color="#888888"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="200" cy="200" r="180" fill="none" stroke="#262626" stroke-width="1.5"/>
+  <circle cx="200" cy="200" r="140" fill="none" stroke="#2a2a2a" stroke-dasharray="4 6"/>
+  <!-- Minimalist Monogram / Silhouette -->
+  <g transform="translate(100, 90)">
+    <circle cx="100" cy="50" r="38" fill="none" stroke="url(#silverGlow)" stroke-width="2.5"/>
+    <path d="M 30,170 C 30,120 70,105 100,105 C 130,105 170,120 170,170" fill="none" stroke="url(#silverGlow)" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <!-- Text Label -->
+  <text x="200" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" letter-spacing="4" fill="#a7a7a7" text-anchor="middle">SYED MUHAMMAD SAIM</text>
+  <text x="200" y="342" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" letter-spacing="2" fill="#666666" text-anchor="middle">FULL STACK &amp; AI</text>
+</svg>

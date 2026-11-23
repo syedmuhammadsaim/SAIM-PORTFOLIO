@@ -125,7 +125,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-16 md:py-24 border-b border-[#eaeaea] dark:border-[#222222] bg-neutral-50/20 dark:bg-[#0c0c0c]/20"
+      className="py-16 md:py-24 border-b border-neutral-200 dark:border-white/10 bg-neutral-50/50 dark:bg-[#0c0c0e]/30"
       aria-label="Contact Section"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -151,7 +151,7 @@ export function ContactSection() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 space-y-6"
           >
-            <div className="p-6 sm:p-8 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-6 shadow-sm">
+            <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#121215] space-y-6 shadow-sm">
               <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100">
                 Direct Contact Information
               </h3>
@@ -209,7 +209,7 @@ export function ContactSection() {
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7"
           >
-            <div className="p-6 sm:p-8 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] shadow-sm">
+            <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#121215] shadow-sm">
               <form onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="hidden" aria-hidden="true">
                   <label htmlFor="botField">Leave this field blank</label>

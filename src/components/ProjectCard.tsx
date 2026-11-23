@@ -43,10 +43,10 @@ export function ProjectCard({ project, index, total: _total, onSelectProject }: 
 
   return (
     <div
-      className="group rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#141414] shadow-xl overflow-hidden transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-600"
+      className="group rounded-3xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#121215] shadow-2xl overflow-hidden transition-all duration-300 hover:border-neutral-400 dark:hover:border-white/25"
     >
       {/* Top Header Row (Similar to '01 CLIENT' in the video) */}
-      <div className="px-6 py-4 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between">
+      <div className="px-6 py-4 border-b border-neutral-100 dark:border-white/5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <span className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight font-mono">
             {paddedIndex}

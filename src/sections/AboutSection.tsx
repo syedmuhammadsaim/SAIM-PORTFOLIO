@@ -9,7 +9,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="py-16 md:py-24 border-b border-[#eaeaea] dark:border-[#222222]"
+      className="py-16 md:py-24 border-b border-neutral-200 dark:border-white/10"
       aria-label="About Syed Muhammad Saim"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,7 +35,7 @@ export function AboutSection() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6"
           >
-            <div className="p-6 sm:p-8 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-neutral-50/50 dark:bg-[#141414]/50 space-y-4 shadow-xs">
+            <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 dark:border-white/10 bg-neutral-50/70 dark:bg-[#121215] space-y-4 shadow-xs">
               <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
                 <Code2 className="w-5 h-5 text-neutral-700 dark:text-neutral-300" />
                 <span>Professional Biography</span>
@@ -49,7 +49,7 @@ export function AboutSection() {
             </div>
 
             {/* Core Focus Areas */}
-            <div className="p-6 sm:p-8 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-4 shadow-xs">
+            <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#121215] space-y-4 shadow-xs">
               <h3 className="text-xs uppercase tracking-widest font-bold text-neutral-400 dark:text-neutral-500">
                 Core Engineering Focus
               </h3>
@@ -58,9 +58,9 @@ export function AboutSection() {
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-center gap-2.5 p-3.5 rounded-xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50/80 dark:bg-[#181818]/80 text-sm font-medium text-neutral-800 dark:text-neutral-200 transition-colors"
+                    className="flex items-center gap-2.5 p-3.5 rounded-xl border border-neutral-100 dark:border-white/5 bg-neutral-50/80 dark:bg-[#18181c] text-sm font-medium text-neutral-800 dark:text-neutral-200 transition-colors"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                     <span>{area}</span>
                   </motion.div>
                 ))}
@@ -77,14 +77,14 @@ export function AboutSection() {
             className="lg:col-span-5 space-y-5"
           >
             {/* Education Card */}
-            <div className="p-6 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-3 shadow-xs">
+            <div className="p-6 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#121215] space-y-3 shadow-xs">
               <div className="flex items-center gap-2.5 text-neutral-900 dark:text-neutral-100 font-bold">
                 <div className="p-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
                   <GraduationCap className="w-4 h-4" />
                 </div>
                 <h4>Education &amp; Formal Training</h4>
               </div>
-              <div className="pt-2 border-t border-neutral-100 dark:border-neutral-800 space-y-1">
+              <div className="pt-2 border-t border-neutral-100 dark:border-white/5 space-y-1">
                 <p className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
                   ACCP AI 3-Year Diploma
                 </p>
@@ -98,14 +98,14 @@ export function AboutSection() {
             </div>
 
             {/* Development Interests */}
-            <div className="p-6 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-3 shadow-xs">
+            <div className="p-6 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#121215] space-y-3 shadow-xs">
               <div className="flex items-center gap-2.5 text-neutral-900 dark:text-neutral-100 font-bold">
                 <div className="p-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
                   <Compass className="w-4 h-4" />
                 </div>
                 <h4>Development Interests</h4>
               </div>
-              <div className="pt-2 border-t border-neutral-100 dark:border-neutral-800">
+              <div className="pt-2 border-t border-neutral-100 dark:border-white/5">
                 <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
                   {bio.interests}
                 </p>
@@ -113,14 +113,14 @@ export function AboutSection() {
             </div>
 
             {/* Career Objectives */}
-            <div className="p-6 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-3 shadow-xs">
+            <div className="p-6 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#121215] space-y-3 shadow-xs">
               <div className="flex items-center gap-2.5 text-neutral-900 dark:text-neutral-100 font-bold">
                 <div className="p-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
                   <Target className="w-4 h-4" />
                 </div>
                 <h4>Career Objective</h4>
               </div>
-              <div className="pt-2 border-t border-neutral-100 dark:border-neutral-800">
+              <div className="pt-2 border-t border-neutral-100 dark:border-white/5">
                 <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
                   {bio.careerObjective}
                 </p>

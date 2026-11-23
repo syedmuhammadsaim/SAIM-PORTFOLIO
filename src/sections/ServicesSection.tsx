@@ -27,7 +27,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="py-16 md:py-24 border-b border-[#eaeaea] dark:border-[#222222]"
+      className="py-16 md:py-24 border-b border-neutral-200 dark:border-white/10"
       aria-label="Engineering Services"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,7 +55,7 @@ export function ServicesSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -6 }}
-                className="p-6 sm:p-7 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-600 transition-all duration-300 shadow-sm group"
+                className="p-6 sm:p-7 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#121215] flex flex-col justify-between hover:border-neutral-400 dark:hover:border-white/25 transition-all duration-300 shadow-sm group"
               >
                 <div className="space-y-4">
                   {/* Top row with index and icon */}

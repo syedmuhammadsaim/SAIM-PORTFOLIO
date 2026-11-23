@@ -37,7 +37,7 @@ export function JourneySection() {
   return (
     <section
       id="journey"
-      className="py-16 md:py-24 border-b border-[#eaeaea] dark:border-[#222222] bg-neutral-50/20 dark:bg-[#0a0a0a]/20"
+      className="py-16 md:py-24 border-b border-neutral-200 dark:border-white/10 bg-neutral-50/50 dark:bg-[#0c0c0e]/30"
       aria-label="Education and Development Journey"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,12 +66,12 @@ export function JourneySection() {
               className="relative group"
             >
               {/* Timeline Node Indicator */}
-              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-[#161616] group-hover:border-neutral-900 dark:group-hover:border-white transition-colors shadow-2xs">
+              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#16161a] group-hover:border-neutral-900 dark:group-hover:border-white transition-colors shadow-2xs">
                 {getMilestoneIcon(milestone.id, milestone.type)}
               </div>
 
               {/* Milestone Content Card */}
-              <div className="p-6 rounded-2xl border border-[#eaeaea] dark:border-[#262626] bg-white dark:bg-[#121212] space-y-3 shadow-xs hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors">
+              <div className="p-6 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#121215] space-y-3 shadow-xs hover:border-neutral-400 dark:hover:border-white/20 transition-colors">
                 {/* Header row: Badge & Context */}
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span

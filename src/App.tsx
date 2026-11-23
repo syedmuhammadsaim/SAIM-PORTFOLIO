@@ -20,7 +20,7 @@ export function App() {
   const activeSection = useActiveSection(sectionIds)
 
   return (
-    <div className="min-h-screen bg-white text-[#111111] dark:bg-[#101010] dark:text-[#f5f5f5] flex flex-col transition-colors duration-300">
+    <div className="min-h-screen bg-white text-neutral-900 dark:bg-[#09090b] dark:text-[#fafafa] flex flex-col transition-colors duration-300 selection:bg-purple-600 selection:text-white">
       {/* Lenis Smooth Inertia Scrolling */}
       <SmoothScroll />
 

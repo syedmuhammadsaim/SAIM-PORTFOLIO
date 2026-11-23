@@ -14,7 +14,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="w-full border-t border-[#eaeaea] dark:border-[#222222] bg-white dark:bg-[#101010] py-12 md:py-16 text-neutral-600 dark:text-neutral-400">
+    <footer className="w-full border-t border-neutral-200 dark:border-white/10 bg-white dark:bg-[#09090b] py-12 md:py-16 text-neutral-600 dark:text-neutral-400">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Top Footer Section */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-neutral-100 dark:border-neutral-800">

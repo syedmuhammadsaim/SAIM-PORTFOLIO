@@ -9,12 +9,16 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden border-b border-[#eaeaea] dark:border-[#222222]"
+      className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden border-b border-neutral-200 dark:border-white/10"
       aria-label="Hero Introduction"
     >
-      {/* Subtle background coordinate accents */}
+      {/* Subtle modern ambient spotlight glow */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05] bg-[radial-gradient(#000_1px,transparent_1px)] dark:bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] pointer-events-none opacity-40 dark:opacity-60 bg-[radial-gradient(ellipse_at_top,_rgba(147,51,234,0.15),_transparent_70%)]"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.04] bg-[radial-gradient(#000_1px,transparent_1px)] dark:bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"
         aria-hidden="true"
       />
 

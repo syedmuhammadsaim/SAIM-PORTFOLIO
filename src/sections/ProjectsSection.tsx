@@ -12,7 +12,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-16 md:py-24 border-b border-[#eaeaea] dark:border-[#222222] relative"
+      className="py-16 md:py-24 border-b border-neutral-200 dark:border-white/10 relative"
       aria-label="Featured Software Projects"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -45,7 +45,7 @@ export function InteractiveAvatar3D() {
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="relative w-full h-full rounded-3xl border border-neutral-200/80 dark:border-neutral-800 bg-linear-to-b from-neutral-50 to-neutral-100 dark:from-[#151515] dark:to-[#0f0f0f] p-5 shadow-2xl flex flex-col items-center justify-between overflow-hidden"
+        className="relative w-full h-full rounded-3xl border border-neutral-200 dark:border-white/10 bg-linear-to-b from-neutral-50 to-neutral-100 dark:from-[#131318] dark:to-[#0c0c0f] p-5 shadow-2xl flex flex-col items-center justify-between overflow-hidden"
       >
         {/* Dynamic Specular Light Glare */}
         <motion.div

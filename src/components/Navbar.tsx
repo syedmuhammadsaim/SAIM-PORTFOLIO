@@ -49,7 +49,7 @@ export function Navbar({ isDark, onToggleTheme, activeSection }: NavbarProps) {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-white/85 dark:bg-[#101010]/85 backdrop-blur-md border-b border-[#eaeaea] dark:border-[#222222] shadow-xs"
+          ? "bg-white/85 dark:bg-[#09090b]/80 backdrop-blur-md border-b border-neutral-200 dark:border-white/10 shadow-xs"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -109,7 +109,7 @@ export function Navbar({ isDark, onToggleTheme, activeSection }: NavbarProps) {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden fixed inset-x-0 top-16 sm:top-20 bottom-0 bg-white/95 dark:bg-[#101010]/95 backdrop-blur-lg border-t border-[#eaeaea] dark:border-[#222222] z-40 flex flex-col justify-between p-6 animate-fadeIn"
+          className="md:hidden fixed inset-x-0 top-16 sm:top-20 bottom-0 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border-t border-neutral-200 dark:border-white/10 z-40 flex flex-col justify-between p-6 animate-fadeIn"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation"
@@ -122,10 +122,10 @@ export function Navbar({ isDark, onToggleTheme, activeSection }: NavbarProps) {
                   key={item.id}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-base font-medium transition-all ${
+                  className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
                     isActive
-                      ? "bg-neutral-100 dark:bg-[#1c1c1c] text-black dark:text-white font-semibold border-l-2 border-black dark:border-white"
-                      : "text-neutral-600 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-[#161616]"
+                      ? "bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white font-semibold border-l-2 border-black dark:border-white"
+                      : "text-neutral-600 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-900"
                   }`}
                 >
                   {item.label}
@@ -134,7 +134,7 @@ export function Navbar({ isDark, onToggleTheme, activeSection }: NavbarProps) {
             })}
           </nav>
 
-          <div className="pt-6 border-t border-[#eaeaea] dark:border-[#222222] flex flex-col gap-3">
+          <div className="pt-6 border-t border-neutral-200 dark:border-white/10 flex flex-col gap-3">
             <p className="text-xs text-neutral-500 dark:text-neutral-400 tracking-wider uppercase font-semibold">
               Connect
             </p>

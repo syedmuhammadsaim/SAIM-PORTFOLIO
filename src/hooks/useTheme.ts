@@ -6,10 +6,10 @@ const STORAGE_KEY = "saim_portfolio_theme"
 
 export function useTheme() {
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "light"
+    if (typeof window === "undefined") return "dark"
     const saved = localStorage.getItem(STORAGE_KEY) as Theme | null
     if (saved === "light" || saved === "dark") return saved
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+    return "dark"
   })
 
   useEffect(() => {

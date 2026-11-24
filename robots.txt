@@ -1,0 +1,5 @@
+# robots.txt for Syed Muhammad Saim Portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://syedmuhammadsaim.github.io/SAIM-PORTFOLIO/sitemap.xml
